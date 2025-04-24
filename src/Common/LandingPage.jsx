@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function LandingPage() {
   const navigate = useNavigate();
 
@@ -60,7 +61,7 @@ export default function LandingPage() {
           </div>
           <div className="hidden md:block">
             <img 
-              src="/api/placeholder/600/400" 
+              src="/src/assets/hero.jpg" 
               alt="Educational illustration" 
               className="rounded-lg shadow-xl"
             />
