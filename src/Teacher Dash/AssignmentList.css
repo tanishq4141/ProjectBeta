@@ -1,0 +1,82 @@
+.assignment-list {
+  padding: 20px;
+}
+
+.assignment-list h2 {
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.filters input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.assignments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.assignment-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.assignment-card:hover {
+  transform: translateY(-5px);
+}
+
+.assignment-card h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.assignment-details {
+  margin-bottom: 20px;
+}
+
+.assignment-details p {
+  margin: 8px 0;
+  color: #34495e;
+}
+
+.assignment-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.assignment-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.assignment-actions button:first-child {
+  background-color: #3498db;
+  color: white;
+}
+
+.assignment-actions button:last-child {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.assignment-actions button:hover {
+  opacity: 0.9;
+} 
