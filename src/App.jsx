@@ -56,13 +56,15 @@ export default function App() {
         
         {/* Protected student routes with layout */}
         {/* <Route element={<ProtectedRoute requiredRole="student" />}> */}
-          <Route element={<StudentLayout userName={userName} userInitials={userInitials} />}>
-            <Route path="/student/*" element={<StudentDashboard />}>
+        <Route element={<StudentLayout userName={userName} userInitials={userInitials} />}>
+          <Route path="/student" element={<StudentDashboard />}>
+              <Route index element={<Navigate to="home" replace />} />
               <Route path="home" element={<HomeComponent />} />
               <Route path="subjects" element={<SubjectList />} />
               <Route path="subject/:id" element={<SubjectComponent />} />
-            </Route>
           </Route>
+        </Route>
+
         {/* </Route> */}
         
         {/* Error routes */}
@@ -73,15 +75,4 @@ export default function App() {
   );
 }
 
-// import React from 'react'
 
-// const App = () => {
-//   return (
-//     <div>
-//       <h1>Welcome to the App</h1>
-//       <SubjectList />
-//     </div>
-//   )
-// }
-
-// export default App
