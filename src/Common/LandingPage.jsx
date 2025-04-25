@@ -52,7 +52,8 @@ export default function LandingPage() {
                 I'm a Teacher
               </button>
               <button 
-                onClick={() => navigate('/signup?role=student')}
+                // onClick={() => navigate('/signup?role=student')}
+                onClick={()=> navigate('/student')}
                 className="px-6 py-3 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 font-medium"
               >
                 I'm a Student
