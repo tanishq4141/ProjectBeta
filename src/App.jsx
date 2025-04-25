@@ -1,35 +1,87 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import LandingPage from './Common/LandingPage';
+import Login from './Common/Auth/Login';
+import Signup from './Common/Auth/Signup';
+import TeacherDashboard from './Teacher/TeacherDashboard';
+import StudentDashboard from './Student/StudentDashboard';
+import NotFound from './Common/NotFound';
+import HomeComponent from './Student/HomeComponent';
+import SubjectList from './Student/SubjectList';
+import SubjectComponent from './Student/SubjectComponent';
+import Header from './Student/Header';
 
-function App() {
-  const [count, setCount] = useState(0)
+// Enhanced authentication checker
+// const ProtectedRoute = ({ requiredRole }) => {
+//   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+//   const userRole = localStorage.getItem('userRole');
+  
+//   if (!isAuthenticated) {
+//     return <Navigate to="/login" replace />;
+//   }
+  
+//   if (requiredRole && userRole !== requiredRole) {
+//     return <Navigate to="/unauthorized" replace />;
+//   }
+  
+//   return <Outlet />;
+// };
 
+// Layout component for student routes with header
+const StudentLayout = ({ userName, userInitials }) => {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header userName={userName} userInitials={userInitials} />
+      <Outlet />
     </>
-  )
+  );
+};
+
+export default function App() {
+  const userName = 'Rahul Singh';
+  const userInitials = 'RS';
+  
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Public routes */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        
+        {/* Protected teacher routes */}
+        {/* <Route element={<ProtectedRoute requiredRole="teacher" />}> */}
+          <Route path="/teacher/*" element={<TeacherDashboard />} />
+        {/* </Route> */}
+        
+        {/* Protected student routes with layout */}
+        {/* <Route element={<ProtectedRoute requiredRole="student" />}> */}
+          <Route element={<StudentLayout userName={userName} userInitials={userInitials} />}>
+            <Route path="/student/*" element={<StudentDashboard />}>
+              <Route path="home" element={<HomeComponent />} />
+              <Route path="subjects" element={<SubjectList />} />
+              <Route path="subject/:id" element={<SubjectComponent />} />
+            </Route>
+          </Route>
+        {/* </Route> */}
+        
+        {/* Error routes */}
+        <Route path="/unauthorized" element={<div>Unauthorized Access</div>} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+// import React from 'react'
+
+// const App = () => {
+//   return (
+//     <div>
+//       <h1>Welcome to the App</h1>
+//       <SubjectList />
+//     </div>
+//   )
+// }
+
+// export default App
