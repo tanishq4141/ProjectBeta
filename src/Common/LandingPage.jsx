@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 export default function LandingPage() {
   const navigate = useNavigate();
 
@@ -46,14 +45,13 @@ export default function LandingPage() {
             </p>
             <div className="mt-8 flex space-x-4">
               <button 
-                onClick={() => navigate('/signup?role=teacher')}
+                onClick={() => navigate('/teacher/home')}
                 className="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 font-medium"
               >
                 I'm a Teacher
               </button>
               <button 
-                // onClick={() => navigate('/signup?role=student')}
-                onClick={()=> navigate('/student')}
+                onClick={() => navigate('/student')}
                 className="px-6 py-3 bg-emerald-600 text-white rounded-md hover:bg-emerald-700 font-medium"
               >
                 I'm a Student

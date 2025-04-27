@@ -11,22 +11,6 @@ import SubjectList from './Student/SubjectList';
 import SubjectComponent from './Student/SubjectComponent';
 import Header from './Student/Header';
 
-// Enhanced authentication checker
-// const ProtectedRoute = ({ requiredRole }) => {
-//   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-//   const userRole = localStorage.getItem('userRole');
-  
-//   if (!isAuthenticated) {
-//     return <Navigate to="/login" replace />;
-//   }
-  
-//   if (requiredRole && userRole !== requiredRole) {
-//     return <Navigate to="/unauthorized" replace />;
-//   }
-  
-//   return <Outlet />;
-// };
-
 // Layout component for student routes with header
 const StudentLayout = ({ userName, userInitials }) => {
   return (
@@ -49,23 +33,18 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         
-        {/* Protected teacher routes */}
-        {/* <Route element={<ProtectedRoute requiredRole="teacher" />}> */}
-          <Route path="/teacher/*" element={<TeacherDashboard />} />
-        {/* </Route> */}
+        {/* Teacher routes - direct access without nesting */}
+        <Route path="/teacher/*" element={<TeacherDashboard />} />
         
-        {/* Protected student routes with layout */}
-        {/* <Route element={<ProtectedRoute requiredRole="student" />}> */}
+        {/* Student routes with layout */}
         <Route element={<StudentLayout userName={userName} userInitials={userInitials} />}>
           <Route path="/student" element={<StudentDashboard />}>
-              <Route index element={<Navigate to="home" replace />} />
-              <Route path="home" element={<HomeComponent />} />
-              <Route path="subjects" element={<SubjectList />} />
-              <Route path="subject/:id" element={<SubjectComponent />} />
+            <Route index element={<Navigate to="home" replace />} />
+            <Route path="home" element={<HomeComponent />} />
+            <Route path="subjects" element={<SubjectList />} />
+            <Route path="subject/:id" element={<SubjectComponent />} />
           </Route>
         </Route>
-
-        {/* </Route> */}
         
         {/* Error routes */}
         <Route path="/unauthorized" element={<div>Unauthorized Access</div>} />
@@ -74,5 +53,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
-
