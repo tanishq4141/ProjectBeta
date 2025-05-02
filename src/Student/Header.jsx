@@ -10,7 +10,7 @@ export default function Header({ userName, userInitials }) {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <span className="text-indigo-600 text-xl font-bold">EduQuiz AI</span>
+              <span className="text-indigo-600 text-xl font-bold">ProjectBeta</span>
             </div>
             <nav className="ml-6 flex space-x-4 sm:space-x-8">
               {/** Home link **/}

@@ -20,7 +20,7 @@ export default function TeacherHeader({ userName, userInitials, currentTab, setC
             <div className="flex-shrink-0 flex items-center">
               <span className="text-indigo-600 text-xl font-bold cursor-pointer" 
                 onClick={() => navigateTo('/teacher/home', 'home')}>
-                EduQuiz AI
+                ProjectBeta
               </span>
             </div>
           </div>

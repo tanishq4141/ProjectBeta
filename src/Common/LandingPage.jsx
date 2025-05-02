@@ -12,7 +12,7 @@ export default function LandingPage() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <span className="text-indigo-600 text-xl font-bold">EduQuiz AI</span>
+                <span className="text-indigo-600 text-xl font-bold">ProjectBeta</span>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -108,7 +108,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <p className="text-lg font-bold">EduQuiz AI</p>
+              <p className="text-lg font-bold">ProjectBeta</p>
               <p className="text-sm text-gray-300">Empowering education with AI</p>
             </div>
             <div className="flex space-x-6">
@@ -119,7 +119,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-300">
-            &copy; {new Date().getFullYear()} EduQuiz AI. All rights reserved.
+            &copy; {new Date().getFullYear()} ProjectBeta. All rights reserved.
           </div>
         </div>
       </footer>
